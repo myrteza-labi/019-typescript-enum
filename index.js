@@ -6,7 +6,7 @@ var Month;
     Month[Month["Avr"] = 3] = "Avr";
     Month[Month["Mai"] = 4] = "Mai";
     Month[Month["Jun"] = 5] = "Jun";
-    Month[Month["Jui"] = 6] = "Jui";
+    Month[Month["Jul"] = 6] = "Jul";
     Month[Month["Aou"] = 7] = "Aou";
     Month[Month["Sep"] = 8] = "Sep";
     Month[Month["Oct"] = 9] = "Oct";
@@ -18,15 +18,31 @@ var isItSummer = function (month) {
     var isSummer;
     switch (month) {
         case Month.Jun:
-        case Month.Jui:
+        case Month.Jul:
         case Month.Aou:
             isSummer = true;
             break;
         default:
             isSummer = false;
-            break;
     }
     ;
     return isSummer;
 };
-console.log(isItSummer(Month.Fev));
+console.log(isItSummer(Month.Aou));
+var ApprovalStatus;
+(function (ApprovalStatus) {
+    ApprovalStatus[ApprovalStatus["draft"] = 0] = "draft";
+    ApprovalStatus[ApprovalStatus["submited"] = 1] = "submited";
+    ApprovalStatus[ApprovalStatus["approved"] = 2] = "approved";
+    ApprovalStatus[ApprovalStatus["rejected"] = 3] = "rejected";
+})(ApprovalStatus || (ApprovalStatus = {}));
+;
+var projectX = {
+    id: 1,
+    name: "x",
+    status: ApprovalStatus.approved
+};
+if (projectX.status === ApprovalStatus.approved) {
+    console.log('Thank you for your approval');
+}
+;

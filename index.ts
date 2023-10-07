@@ -5,7 +5,7 @@ enum Month {
     Avr, 
     Mai, 
     Jun, 
-    Jui, 
+    Jul, 
     Aou, 
     Sep, 
     Oct, 
@@ -13,19 +13,39 @@ enum Month {
     Dec
 }; 
 
-const isItSummer = (month: Month) => {
+const isItSummer = (month:Month) => {
     let isSummer : boolean; 
     switch (month) {
         case Month.Jun: 
-        case Month.Jui: 
+        case Month.Jul: 
         case Month.Aou: 
             isSummer = true; 
-            break; 
-        default: 
+        break; 
+        default : 
             isSummer = false; 
-            break; 
     };
-    return isSummer; 
-};
+    return isSummer;  
+}; 
 
-console.log(isItSummer(Month.Fev)); 
+console.log(isItSummer(Month.Aou))
+
+enum ApprovalStatus {
+    draft,
+    submited, 
+    approved, 
+    rejected
+}; 
+
+const projectX = {
+    id: 1, 
+    name: "x", 
+    status : ApprovalStatus.approved
+}; 
+
+if(projectX.status === ApprovalStatus.approved) {
+    console.log('Thank you for your approval'); 
+}; 
+
+
+
+
